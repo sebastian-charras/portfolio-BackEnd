@@ -1,7 +1,5 @@
 package com.sebastian.portfolio.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,9 +17,6 @@ import lombok.Data;
 @Entity
 @Table(name = "education")
 @Data
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class Education implements Serializable {
 
     @Id
@@ -34,4 +29,14 @@ public class Education implements Serializable {
     private String period;
     private Boolean completed;
     private String description;
+
+    public void addInstitution(Institution institution) {
+        this.institution = institution;
+        institution.getEducations().add(this);
+    }
+
+    public void removeInstitution() {
+        institution.getEducations().remove(this);
+        this.institution = null;
+    }
 }

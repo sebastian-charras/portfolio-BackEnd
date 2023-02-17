@@ -34,7 +34,7 @@ CREATE TABLE `education` (
   PRIMARY KEY (`id`),
   KEY `institution` (`institution`),
   CONSTRAINT `education_fk_1` FOREIGN KEY (`institution`) REFERENCES `institution` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `education` (
 
 LOCK TABLES `education` WRITE;
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
-INSERT INTO `education` VALUES (2,NULL,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,NULL,'Técnico Superior en Informática Aplicada','Feb. 2021 - Mar. 2024 (estimado)',0,NULL),(5,NULL,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,NULL,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,NULL,'Curso de Python para no programadores','2021',1,NULL),(8,NULL,'Curso de Python programming','2021',1,NULL),(9,NULL,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(10,NULL,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
+INSERT INTO `education` VALUES (2,2,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,1,'Técnico Superior en Informática Aplicada','Feb. 2021 - Mar. 2024 (estimado)',0,NULL),(5,3,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,4,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,4,'Curso de Python para no programadores','2021',1,NULL),(8,4,'Curso de Python programming','2021',1,NULL),(9,5,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(11,5,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `institution` (
   `name` varchar(100) NOT NULL,
   `logo_url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +181,7 @@ CREATE TABLE `work_experience` (
 
 LOCK TABLES `work_experience` WRITE;
 /*!40000 ALTER TABLE `work_experience` DISABLE KEYS */;
-INSERT INTO `work_experience` VALUES (1,NULL,'Pasante Administrativo','Jul. 2022 - Feb. 2023',1,'Realicé tareas en su mayor parte administrativas. También desarrollé un prototipo de sistema para visualizar certificados digitales usando html, css, javascript, java, spring y mysql');
+INSERT INTO `work_experience` VALUES (1,1,'Pasante Administrativo','Jul. 2022 - Feb. 2023',1,'Realicé tareas en su mayor parte administrativas. También desarrollé un prototipo de sistema para visualizar certificados digitales usando html, css, javascript, java, spring y mysql');
 /*!40000 ALTER TABLE `work_experience` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -194,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-17 17:31:40
+-- Dump completed on 2023-02-17 20:17:44

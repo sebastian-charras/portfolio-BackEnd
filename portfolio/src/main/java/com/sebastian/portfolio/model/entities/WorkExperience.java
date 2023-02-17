@@ -1,7 +1,5 @@
 package com.sebastian.portfolio.model.entities;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,9 +16,6 @@ import lombok.Data;
 @Entity
 @Table(name = "work_experience")
 @Data
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")
 public class WorkExperience {
 
     @Id
@@ -33,4 +28,14 @@ public class WorkExperience {
     private String period;
     private Boolean completed;
     private String description;
+
+    public void addInstitution(Institution institution) {
+        this.institution = institution;
+        institution.getWorkExperiences().add(this);
+    }
+
+    public void removeInstitution() {
+        institution.getWorkExperiences().remove(this);
+        this.institution = null;
+    }
 }

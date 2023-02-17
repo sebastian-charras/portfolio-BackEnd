@@ -5,6 +5,7 @@ import com.sebastian.portfolio.model.exceptions.SkillNotFoundException;
 import com.sebastian.portfolio.model.repositories.SkillRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @AllArgsConstructor
+@CrossOrigin
 public class SkillController {
 
     private final SkillRepository skillRepository;

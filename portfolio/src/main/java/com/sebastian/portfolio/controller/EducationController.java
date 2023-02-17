@@ -1,16 +1,21 @@
 package com.sebastian.portfolio.controller;
 
 import com.sebastian.portfolio.model.entities.Education;
+import com.sebastian.portfolio.model.entities.Institution;
 import com.sebastian.portfolio.model.exceptions.EducationNotFoundException;
+import com.sebastian.portfolio.model.exceptions.InstitutionNotFoundException;
 import com.sebastian.portfolio.model.repositories.EducationRepository;
+import com.sebastian.portfolio.model.repositories.InstitutionRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -19,9 +24,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @AllArgsConstructor
+@CrossOrigin
 public class EducationController {
 
     private final EducationRepository educationRepository;
+    private final InstitutionRepository institutionRepository;
 
     @GetMapping("/api/education")
     public List<Education> all() {
@@ -55,5 +62,20 @@ public class EducationController {
     @DeleteMapping("/api/education/{id}")
     public void deleteEducation(@PathVariable Integer id) {
         educationRepository.deleteById(id);
+    }
+
+    @PutMapping("/api/education/{id}/institution")
+    public Education addInstitution(@PathVariable Integer id, @RequestParam Integer institutionId) {
+        Institution institution = institutionRepository.findById(institutionId).orElseThrow(() -> new InstitutionNotFoundException(institutionId));
+        Education education = educationRepository.findById(id).orElseThrow(() -> new EducationNotFoundException(id));
+        education.addInstitution(institution);
+        return educationRepository.save(education);
+    }
+
+    @DeleteMapping("/api/education/{id}/institution")
+    public Education removeInstitution(@PathVariable Integer id) {
+        Education education = educationRepository.findById(id).orElseThrow(() -> new EducationNotFoundException(id));
+        education.removeInstitution();
+        return educationRepository.save(education);
     }
 }
