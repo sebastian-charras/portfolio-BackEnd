@@ -88,6 +88,9 @@ CREATE TABLE `person` (
   `email` varchar(500) DEFAULT NULL,
   `github_url` varchar(500) DEFAULT NULL,
   `linkedin_url` varchar(500) DEFAULT NULL,
+  `profile_picture_url` varchar(500) DEFAULT NULL,
+  `hero_image_url` varchar(500) DEFAULT NULL,
+  `catch_phrase` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -98,7 +101,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (2,'Sebastian','Charras','Full Stack Developer Jr','Desarrollo aplicaciones web, desde el diseño y la implementación de la interfaz gráfica hasta la base de datos, api y el servidor.','sebastiancharras@outlook.com','https://github.com/sebastian-charras','https://www.linkedin.com/in/sebastian-charras-991239208/');
+INSERT INTO `person` VALUES (2,'Sebastian','Charras','Full Stack Developer Jr','Desarrollo aplicaciones web, desde el diseño y la implementación de la interfaz gráfica hasta la base de datos, api y el servidor.','sebastiancharras@outlook.com','https://github.com/sebastian-charras','https://www.linkedin.com/in/sebastian-charras-991239208/','https://lh3.googleusercontent.com/pw/AMWts8A2gGUuguPGfA_ViTJahTGf7xpipL7ZW8GGXq0TnY0o5ZPqab4MFSy15HK7KFcO0g9TP2mAyaYwIFQoXCyCBIdRlvw3mI2q-HeIiM59jw4TvhtmTkZ9mRd89_BnSSN2GxotPTTsKaAFyqePb0mlnZLQGg=s456-no?authuser=0','https://lh3.googleusercontent.com/pw/AMWts8CuZoGWX21qnpqGIXmssblftz7rcb6KNCSjDnaq63nokcEcGN5vrtbRCf8F9mHTo2e-hX6olHFWKq-e_6kBLkcNJbpVnI4wXZXRMKh1GmRCPBukuXWm4fowWQV8NeYd3sqVCDeSLnWW31yuaLvRZp2MKg=w457-h754-s-no','¿Quieres tener una página web?');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,4 +197,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-17 20:17:44
+-- Dump completed on 2023-02-18 18:50:53

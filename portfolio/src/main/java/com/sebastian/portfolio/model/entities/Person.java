@@ -29,4 +29,10 @@ public class Person {
     private String githubUrl;
     @Column(name = "linkedin_url")
     private String linkedinUrl;
+    @Column(name = "profile_picture_url")
+    private String profilePictureUrl;
+    @Column(name = "hero_image_url")
+    private String heroImageUrl;
+    @Column(name = "catch_phrase")
+    private String catchPhrase;
 }
