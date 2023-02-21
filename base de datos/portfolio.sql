@@ -43,7 +43,7 @@ CREATE TABLE `education` (
 
 LOCK TABLES `education` WRITE;
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
-INSERT INTO `education` VALUES (2,2,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,NULL,'Técnico Superior en Informática Aplicada','desde Feb. 2021',0,NULL),(5,3,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,4,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,4,'Curso de Python para no programadores','2021',1,NULL),(8,4,'Curso de Python programming','2021',1,NULL),(9,5,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(11,5,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
+INSERT INTO `education` VALUES (2,2,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,10,'Técnico Superior en Informática Aplicada','desde Feb. 2021',0,NULL),(5,3,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,4,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,4,'Curso de Python para no programadores','2021',1,NULL),(8,4,'Curso de Python programming','2021',1,NULL),(9,5,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(11,5,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,4 +197,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-21 19:37:03
+-- Dump completed on 2023-02-21 19:41:16
