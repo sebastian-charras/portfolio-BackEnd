@@ -1,8 +1,12 @@
 package com.sebastian.portfolio.controller;
 
+import com.sebastian.portfolio.model.entities.Education;
 import com.sebastian.portfolio.model.entities.Institution;
+import com.sebastian.portfolio.model.entities.WorkExperience;
 import com.sebastian.portfolio.model.exceptions.InstitutionNotFoundException;
+import com.sebastian.portfolio.model.repositories.EducationRepository;
 import com.sebastian.portfolio.model.repositories.InstitutionRepository;
+import com.sebastian.portfolio.model.repositories.WorkExperienceRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class InstitutionController {
 
     private final InstitutionRepository institutionRepository;
+    private final EducationRepository educationRepository;
+    private final WorkExperienceRepository workExperienceRepository;
 
     @GetMapping("/api/institution")
     public List<Institution> all() {
@@ -53,5 +59,30 @@ public class InstitutionController {
     @DeleteMapping("/api/institution/{id}")
     public void deleteInstitution(@PathVariable Integer id) {
         institutionRepository.deleteById(id);
+    }
+
+    @GetMapping("/api/institution/{id}/isReferenced")
+    public Boolean isReferenced(@PathVariable Integer id) {
+        Institution institution = institutionRepository.findById(id).orElseThrow(() -> new InstitutionNotFoundException(id));
+        List<Education> educations = educationRepository.findAll();
+        List<WorkExperience> workExperiences = workExperienceRepository.findAll();
+        Boolean isReferenced = false;
+        int i = 0;
+        while (!isReferenced && i < educations.size()) {
+            if (educations.get(i).getInstitution() != null && educations.get(i).getInstitution().equals(institution)) {
+                isReferenced = true;
+            } else {
+                i++;
+            }
+        }
+        i = 0;
+        while (!isReferenced && i < workExperiences.size()) {
+            if (workExperiences.get(i).getInstitution() != null && workExperiences.get(i).getInstitution().equals(institution)) {
+                isReferenced = true;
+            } else {
+                i++;
+            }
+        }
+        return isReferenced;
     }
 }

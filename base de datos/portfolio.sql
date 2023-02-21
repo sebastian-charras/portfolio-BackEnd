@@ -34,7 +34,7 @@ CREATE TABLE `education` (
   PRIMARY KEY (`id`),
   KEY `institution` (`institution`),
   CONSTRAINT `education_fk_1` FOREIGN KEY (`institution`) REFERENCES `institution` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `education` (
 
 LOCK TABLES `education` WRITE;
 /*!40000 ALTER TABLE `education` DISABLE KEYS */;
-INSERT INTO `education` VALUES (2,2,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,1,'Técnico Superior en Informática Aplicada','Feb. 2021 - Mar. 2024 (estimado)',0,NULL),(5,3,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,4,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,4,'Curso de Python para no programadores','2021',1,NULL),(8,4,'Curso de Python programming','2021',1,NULL),(9,5,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(11,5,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
+INSERT INTO `education` VALUES (2,2,'Bachiller en Ciencias Sociales','2015 - 2020',1,NULL),(4,NULL,'Técnico Superior en Informática Aplicada','desde Feb. 2021',0,NULL),(5,3,'Curso de Desarrollo Web Front-end','2022',1,NULL),(6,4,'Curso de Javascript Desarrollador Avanzado','2021',1,NULL),(7,4,'Curso de Python para no programadores','2021',1,NULL),(8,4,'Curso de Python programming','2021',1,NULL),(9,5,'Primera etapa del Plan Argentina Programa - #SéProgramar','2022',1,NULL),(11,5,'Segunda etapa del Plan Argentina Programa - #YoProgramo','2022 - 2023',0,NULL);
 /*!40000 ALTER TABLE `education` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `institution` (
   `name` varchar(100) NOT NULL,
   `logo_url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `institution` (
 
 LOCK TABLES `institution` WRITE;
 /*!40000 ALTER TABLE `institution` DISABLE KEYS */;
-INSERT INTO `institution` VALUES (1,'UTN-INSPT','https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img/https://inspt.utn.edu.ar/wp-content/uploads/2021/08/utn_inspt_logo_iso_.png'),(2,'Escuela de Educación Media N° 8 Dr. Antonio Sagarna (anteriormente Colegio Nacional de San Isidro)',NULL),(3,'Centro Universitario Vicente López','https://www.vicentelopez.gov.ar/centrouniversitariovl/assets/images/logo-navbar-200.png'),(4,'Educación IT','https://static.educacionit.com/educacionit/assets/imagotype-it-fill-v2-color.svg'),(5,'Argentina Programa','https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1676134779/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(17).png');
+INSERT INTO `institution` VALUES (2,'Escuela de Educación Media N° 8 Dr. Antonio Sagarna (anteriormente Colegio Nacional de San Isidro)',NULL),(3,'Centro Universitario Vicente López','https://www.vicentelopez.gov.ar/centrouniversitariovl/assets/images/logo-navbar-200.png'),(4,'Educación IT','https://static.educacionit.com/educacionit/assets/imagotype-it-fill-v2-color.svg'),(5,'Argentina Programa','https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1676134779/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(17).png'),(10,'UTN-INSPT','https://inspt.utn.edu.ar/wp-content/uploads/2021/08/utn_inspt_logo_iso_.png');
 /*!40000 ALTER TABLE `institution` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,7 +101,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (2,'Sebastian','Charras','Full Stack Developer Jr','Desarrollo aplicaciones web, desde el diseño y la implementación de la interfaz gráfica hasta la base de datos, api y el servidor.','sebastiancharras@outlook.com','https://github.com/sebastian-charras','https://www.linkedin.com/in/sebastian-charras-991239208/','https://lh3.googleusercontent.com/pw/AMWts8A2gGUuguPGfA_ViTJahTGf7xpipL7ZW8GGXq0TnY0o5ZPqab4MFSy15HK7KFcO0g9TP2mAyaYwIFQoXCyCBIdRlvw3mI2q-HeIiM59jw4TvhtmTkZ9mRd89_BnSSN2GxotPTTsKaAFyqePb0mlnZLQGg=s456-no?authuser=0','https://lh3.googleusercontent.com/pw/AMWts8CuZoGWX21qnpqGIXmssblftz7rcb6KNCSjDnaq63nokcEcGN5vrtbRCf8F9mHTo2e-hX6olHFWKq-e_6kBLkcNJbpVnI4wXZXRMKh1GmRCPBukuXWm4fowWQV8NeYd3sqVCDeSLnWW31yuaLvRZp2MKg=w457-h754-s-no','¿Quieres tener una página web?');
+INSERT INTO `person` VALUES (2,'Sebastian','Charras','Full Stack Developer Jr','Desarrollo aplicaciones web, desde el diseño y la implementación de la interfaz gráfica hasta la base de datos, api y el servidor. Aprendo constantemente y deseo trabajar creando experiencias de usuario inmersivas.','sebastiancharras@outlook.com','https://github.com/sebastian-charras','https://www.linkedin.com/in/sebastian-charras-991239208/','https://lh3.googleusercontent.com/9rvpopMNo9XI1p-LRhdSibQ_wN0ZVAGWUVmkn7qlA5VeFVTsov3VH2MkFbs9e-FjMcuoi8ruPKMhFRBptDivchyEmpIY1gDEQmsHPSnaN5XwtyBPKnAeUXQ6S7xJ8FhF5lbeCjQL=w2400','https://lh3.googleusercontent.com/PvcquAXNGrW_96UndqhUUNTM6c9FnSu1Bfop0nahWZJqJScXcbSWA78k_JtzqPrfxpWi0Jg9ensrHtyHKAf_devOJ8k3Eik0HSoakSViqsgUksO_ww_BaFefFYcF0uY9fWS4hqWb=w2400','¿Quieres tener una página web?');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `project` (
   `description` varchar(500) DEFAULT NULL,
   `url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,7 +129,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (2,'Portfolio Web','2022',1,'Portfolio Web con algunos proyectos front end','https://dashing-mousse-4065dd.netlify.app/'),(3,'Portfolio Web','2023',0,'Portfolio con proyectos personales, habilidades, educación y experiencias laborales',''),(4,'Sistema de Gestión para Guardería de Vehículos','2023',1,'Sistema para visualizar y gestionar datos de una hipotética guardería de vehículos, incluídos sus administradores, empleados, garages, socios, vehículos y zonas',NULL),(5,'Weather Channel','2022',1,'Permite ver datos meteorológicos de la ubicación seleccionada','https://incandescent-crostata-2ea2ef.netlify.app/'),(6,'To Do List','2022',1,'Lista de pendientes, proyecto frontend','https://teal-beijinho-232898.netlify.app/'),(7,'The Great Guessing Game','2022',1,'Juego para adivinar qué color es el representado por el valor rgb dado','https://resilient-sunburst-78181f.netlify.app/');
+INSERT INTO `project` VALUES (2,'Portfolio Web','2022',1,'Portfolio Web con algunos proyectos front end','https://dashing-mousse-4065dd.netlify.app/'),(3,'Portfolio Web','2023',0,'Portfolio con proyectos personales, habilidades, educación y experiencias laborales',''),(4,'Sistema de Gestión para Guardería de Vehículos','2023',1,'Sistema para visualizar y gestionar datos de una hipotética guardería de vehículos, incluídos sus administradores, empleados, garages, socios, vehículos y zonas',NULL),(5,'Weather Channel','2022',1,'Permite ver datos meteorológicos de la ubicación elegida','https://incandescent-crostata-2ea2ef.netlify.app/'),(6,'To Do List','2022',1,'Lista de pendientes, proyecto frontend','https://teal-beijinho-232898.netlify.app/'),(7,'The Great Guessing Game','2022',1,'Juego para adivinar qué color es el representado por el valor rgb dado por el usuario','https://resilient-sunburst-78181f.netlify.app/');
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +145,7 @@ CREATE TABLE `skill` (
   `name` varchar(100) NOT NULL,
   `percentage` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,7 +154,7 @@ CREATE TABLE `skill` (
 
 LOCK TABLES `skill` WRITE;
 /*!40000 ALTER TABLE `skill` DISABLE KEYS */;
-INSERT INTO `skill` VALUES (1,'HTML',85),(2,'CSS',90),(3,'Javascript',85),(4,'Java',95),(5,'SQL',70),(6,'Español',100),(7,'Inglés',85);
+INSERT INTO `skill` VALUES (1,'HTML',85),(2,'CSS',90),(3,'Javascript',85),(4,'Java',95),(5,'SQL',70),(6,'Español',100),(7,'Inglés',80),(15,'Angular',85);
 /*!40000 ALTER TABLE `skill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +175,7 @@ CREATE TABLE `work_experience` (
   PRIMARY KEY (`id`),
   KEY `institution` (`institution`),
   CONSTRAINT `work_experience_fk_1` FOREIGN KEY (`institution`) REFERENCES `institution` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +184,7 @@ CREATE TABLE `work_experience` (
 
 LOCK TABLES `work_experience` WRITE;
 /*!40000 ALTER TABLE `work_experience` DISABLE KEYS */;
-INSERT INTO `work_experience` VALUES (1,1,'Pasante Administrativo','Jul. 2022 - Feb. 2023',1,'Realicé tareas en su mayor parte administrativas. También desarrollé un prototipo de sistema para visualizar certificados digitales usando html, css, javascript, java, spring y mysql');
+INSERT INTO `work_experience` VALUES (1,10,'Pasante Administrativo','Jul. 2022 - Feb. 2023',1,'Realicé tareas en su mayor parte administrativas. También desarrollé un prototipo de sistema para visualizar certificados digitales usando html, css, javascript, java, spring y mysql');
 /*!40000 ALTER TABLE `work_experience` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -197,4 +197,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-18 18:50:53
+-- Dump completed on 2023-02-21 19:37:03

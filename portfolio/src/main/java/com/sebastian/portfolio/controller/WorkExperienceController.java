@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -62,8 +61,8 @@ public class WorkExperienceController {
         workExperienceRepository.deleteById(id);
     }
 
-    @PutMapping("/api/workExperience/{id}/institution")
-    public WorkExperience addInstitution(@PathVariable Integer id, @RequestParam Integer institutionId) {
+    @PutMapping("/api/workExperience/{id}/institution/{institutionId}")
+    public WorkExperience addInstitution(@PathVariable Integer id, @PathVariable Integer institutionId) {
         Institution institution = institutionRepository.findById(institutionId).orElseThrow(() -> new InstitutionNotFoundException(institutionId));
         WorkExperience workExperience = workExperienceRepository.findById(id).orElseThrow(() -> new WorkExperienceNotFoundException(id));
         workExperience.addInstitution(institution);
