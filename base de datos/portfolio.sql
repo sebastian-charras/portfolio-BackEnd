@@ -159,6 +159,30 @@ INSERT INTO `skill` VALUES (1,'HTML',85),(2,'CSS',90),(3,'Javascript',85),(4,'Ja
 UNLOCK TABLES;
 
 --
+-- Table structure for table `system_user`
+--
+
+DROP TABLE IF EXISTS `system_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `system_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `system_user`
+--
+
+LOCK TABLES `system_user` WRITE;
+/*!40000 ALTER TABLE `system_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `system_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `work_experience`
 --
 
@@ -197,4 +221,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-21 19:41:16
+-- Dump completed on 2023-03-01 17:18:17
