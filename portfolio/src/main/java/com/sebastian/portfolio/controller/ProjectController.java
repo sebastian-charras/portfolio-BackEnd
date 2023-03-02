@@ -3,21 +3,12 @@ package com.sebastian.portfolio.controller;
 import com.sebastian.portfolio.model.entities.Project;
 import com.sebastian.portfolio.model.exceptions.ProjectNotFoundException;
 import com.sebastian.portfolio.model.repositories.ProjectRepository;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-/**
- *
- * @author Sebastian Charras
- */
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class ProjectController {

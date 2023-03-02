@@ -2,7 +2,6 @@ package com.sebastian.portfolio.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sebastian.portfolio.model.entities.User;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,10 +12,10 @@ import java.util.Collection;
 public class UserDetailsImplementation implements UserDetails {
 
     private static final long serialVersionUID = 1L;
-    private Integer id;
-    private String username;
+    private final Integer id;
+    private final String username;
     @JsonIgnore
-    private String password;
+    private final String password;
 
     public UserDetailsImplementation(Integer id, String username, String password) {
         this.id = id;
@@ -24,7 +23,7 @@ public class UserDetailsImplementation implements UserDetails {
         this.password = password;
     }
 
-    public static UserDetailsImplementation build(User user){
+    public static UserDetailsImplementation build(User user) {
         return new UserDetailsImplementation(user.getId(), user.getUsername(), user.getPassword());
     }
 

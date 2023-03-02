@@ -1,6 +1,8 @@
 package com.sebastian.portfolio.security;
 
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -28,11 +30,11 @@ public class JwtUtils {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
 
-    public boolean validateJwt(String token){
+    public boolean validateJwt(String token) {
         try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
             return true;
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("Error validating JWT: " + ex.getMessage());
         }
         return false;

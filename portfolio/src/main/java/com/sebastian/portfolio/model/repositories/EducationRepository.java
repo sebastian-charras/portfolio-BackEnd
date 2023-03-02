@@ -5,10 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
  * @author Sebastian Charras
  */
 @Repository
-public interface EducationRepository extends JpaRepository<Education, Integer>{
-    
+public interface EducationRepository extends JpaRepository<Education, Integer> {
+
 }

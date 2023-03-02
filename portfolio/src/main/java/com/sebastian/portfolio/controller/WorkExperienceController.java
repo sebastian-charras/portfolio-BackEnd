@@ -6,21 +6,12 @@ import com.sebastian.portfolio.model.exceptions.InstitutionNotFoundException;
 import com.sebastian.portfolio.model.exceptions.WorkExperienceNotFoundException;
 import com.sebastian.portfolio.model.repositories.InstitutionRepository;
 import com.sebastian.portfolio.model.repositories.WorkExperienceRepository;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-/**
- *
- * @author Sebastian Charras
- */
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class WorkExperienceController {

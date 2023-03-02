@@ -7,7 +7,7 @@ import com.sebastian.portfolio.payloads.JwtResponse;
 import com.sebastian.portfolio.security.JwtUtils;
 import com.sebastian.portfolio.security.UserDetailsImplementation;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
@@ -36,9 +36,7 @@ public class AuthController {
         jwt = jwtUtils.generateJwt(authentication);
         UserDetailsImplementation userDetails;
         userDetails = (UserDetailsImplementation) authentication.getPrincipal();
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getUsername()));
+        return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername()));
     }
 
     @PostMapping("/api/auth/signup")

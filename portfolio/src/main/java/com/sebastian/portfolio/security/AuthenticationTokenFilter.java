@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import java.io.IOException;
 
 public class AuthenticationTokenFilter extends OncePerRequestFilter {
@@ -40,7 +41,7 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
     private String parseJwt(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
         if (StringUtils.hasText(header) && header.startsWith("Bearer ")) {
-            return header.substring(7, header.length());
+            return header.substring(7);
         }
         return null;
     }
