@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 /**
  *
@@ -38,11 +39,13 @@ public class EducationController {
     }
 
     @PostMapping("/api/education")
+    @PreAuthorize("isAuthenticated()")
     public Education newEducation(@RequestBody Education education) {
         return educationRepository.save(education);
     }
 
     @PutMapping("/api/education/{id}")
+    @PreAuthorize("isAuthenticated()")
     public Education replaceEducation(@PathVariable Integer id, @RequestBody Education newEducation) {
         return educationRepository.findById(id).map(education -> {
             education.setCompleted(newEducation.getCompleted());
@@ -57,11 +60,13 @@ public class EducationController {
     }
 
     @DeleteMapping("/api/education/{id}")
+    @PreAuthorize("isAuthenticated()")
     public void deleteEducation(@PathVariable Integer id) {
         educationRepository.deleteById(id);
     }
 
     @PutMapping("/api/education/{id}/institution/{institutionId}")
+    @PreAuthorize("isAuthenticated()")
     public Education addInstitution(@PathVariable Integer id, @PathVariable Integer institutionId) {
         Institution institution = institutionRepository.findById(institutionId).orElseThrow(() -> new InstitutionNotFoundException(institutionId));
         Education education = educationRepository.findById(id).orElseThrow(() -> new EducationNotFoundException(id));
@@ -70,6 +75,7 @@ public class EducationController {
     }
 
     @DeleteMapping("/api/education/{id}/institution")
+    @PreAuthorize("isAuthenticated()")
     public Education removeInstitution(@PathVariable Integer id) {
         Education education = educationRepository.findById(id).orElseThrow(() -> new EducationNotFoundException(id));
         education.removeInstitution();

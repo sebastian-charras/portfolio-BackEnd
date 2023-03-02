@@ -9,6 +9,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  *
  * @author Sebastian Charras
  */
+public class WebConfiguration {
+
+}
+/*
 @Configuration
 @EnableWebMvc
 public class WebConfiguration implements WebMvcConfigurer {
@@ -17,4 +21,4 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedMethods("*");
     }
-}
+}*/

@@ -5,6 +5,7 @@ import com.sebastian.portfolio.model.exceptions.ProjectNotFoundException;
 import com.sebastian.portfolio.model.repositories.ProjectRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,11 +35,13 @@ public class ProjectController {
     }
 
     @PostMapping("/api/project")
+    @PreAuthorize("isAuthenticated()")
     public Project newProject(@RequestBody Project project) {
         return projectRepository.save(project);
     }
 
     @PutMapping("/api/project/{id}")
+    @PreAuthorize("isAuthenticated()")
     public Project replaceProject(@PathVariable Integer id, @RequestBody Project newProject) {
         return projectRepository.findById(id).map(project -> {
             project.setCompleted(newProject.getCompleted());
@@ -54,6 +57,7 @@ public class ProjectController {
     }
 
     @DeleteMapping("/api/project/{id}")
+    @PreAuthorize("isAuthenticated()")
     public void deleteProject(@PathVariable Integer id) {
         projectRepository.deleteById(id);
     }

@@ -9,6 +9,7 @@ import com.sebastian.portfolio.model.repositories.InstitutionRepository;
 import com.sebastian.portfolio.model.repositories.WorkExperienceRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,11 +41,13 @@ public class InstitutionController {
     }
 
     @PostMapping("/api/institution")
+    @PreAuthorize("isAuthenticated()")
     public Institution newInstitution(@RequestBody Institution institution) {
         return institutionRepository.save(institution);
     }
 
     @PutMapping("/api/institution/{id}")
+    @PreAuthorize("isAuthenticated()")
     public Institution replaceInstitution(@PathVariable Integer id, @RequestBody Institution newInstitution) {
         return institutionRepository.findById(id).map(institution -> {
             institution.setLogoUrl(newInstitution.getLogoUrl());
@@ -57,6 +60,7 @@ public class InstitutionController {
     }
 
     @DeleteMapping("/api/institution/{id}")
+    @PreAuthorize("isAuthenticated()")
     public void deleteInstitution(@PathVariable Integer id) {
         institutionRepository.deleteById(id);
     }

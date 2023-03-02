@@ -8,6 +8,7 @@ import com.sebastian.portfolio.model.repositories.InstitutionRepository;
 import com.sebastian.portfolio.model.repositories.WorkExperienceRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,11 +39,13 @@ public class WorkExperienceController {
     }
 
     @PostMapping("/api/workExperience")
+    @PreAuthorize("isAuthenticated()")
     public WorkExperience newWorkExperience(@RequestBody WorkExperience workExperience) {
         return workExperienceRepository.save(workExperience);
     }
 
     @PutMapping("/api/workExperience/{id}")
+    @PreAuthorize("isAuthenticated()")
     public WorkExperience replaceWorkExperience(@PathVariable Integer id, @RequestBody WorkExperience newWorkExperience) {
         return workExperienceRepository.findById(id).map(workExperience -> {
             workExperience.setCompleted(newWorkExperience.getCompleted());
@@ -57,11 +60,13 @@ public class WorkExperienceController {
     }
 
     @DeleteMapping("/api/workExperience/{id}")
+    @PreAuthorize("isAuthenticated()")
     public void deleteWorkExperience(@PathVariable Integer id) {
         workExperienceRepository.deleteById(id);
     }
 
     @PutMapping("/api/workExperience/{id}/institution/{institutionId}")
+    @PreAuthorize("isAuthenticated()")
     public WorkExperience addInstitution(@PathVariable Integer id, @PathVariable Integer institutionId) {
         Institution institution = institutionRepository.findById(institutionId).orElseThrow(() -> new InstitutionNotFoundException(institutionId));
         WorkExperience workExperience = workExperienceRepository.findById(id).orElseThrow(() -> new WorkExperienceNotFoundException(id));
@@ -70,6 +75,7 @@ public class WorkExperienceController {
     }
 
     @DeleteMapping("/api/workExperience/{id}/institution")
+    @PreAuthorize("isAuthenticated()")
     public WorkExperience removeInstitution(@PathVariable Integer id) {
         WorkExperience workExperience = workExperienceRepository.findById(id).orElseThrow(() -> new WorkExperienceNotFoundException(id));
         workExperience.removeInstitution();

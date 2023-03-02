@@ -5,6 +5,7 @@ import com.sebastian.portfolio.model.exceptions.SkillNotFoundException;
 import com.sebastian.portfolio.model.repositories.SkillRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,11 +35,13 @@ public class SkillController {
     }
 
     @PostMapping("/api/skill")
+    @PreAuthorize("isAuthenticated()")
     public Skill newSkill(@RequestBody Skill skill) {
         return skillRepository.save(skill);
     }
 
     @PutMapping("/api/skill/{id}")
+    @PreAuthorize("isAuthenticated()")
     public Skill replaceSkill(@PathVariable Integer id, @RequestBody Skill newSkill) {
         return skillRepository.findById(id).map(skill -> {
             skill.setName(newSkill.getName());
@@ -51,6 +54,7 @@ public class SkillController {
     }
 
     @DeleteMapping("/api/skill/{id}")
+    @PreAuthorize("isAuthenticated()")
     public void deleteController(@PathVariable Integer id) {
         skillRepository.deleteById(id);
     }
