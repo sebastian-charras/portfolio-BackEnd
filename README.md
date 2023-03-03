@@ -8,3 +8,5 @@ username: admin
 password: admin
 
 El archivo application.properties no usa la misma base de datos que la version alojada en fly.io ya que sino expondria las credenciales.
+
+Los archivos .sql tienen algunas diferencias con la version alojada en clever cloud, en especial en el nombre de la base de datos.
