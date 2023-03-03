@@ -6,3 +6,5 @@ Para realizar POST, PUT y DELETE es necesario iniciar sesion, para lo cual puede
 
 username: admin
 password: admin
+
+El archivo application.properties no usa la misma base de datos que la version alojada en fly.io ya que sino expondria las credenciales.
