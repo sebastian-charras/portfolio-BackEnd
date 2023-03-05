@@ -1,0 +1,136 @@
+@startuml
+left to right direction
+package org.springframework.security.authentication {
+  interface AuthenticationManager
+}
+package org.springframework.security.web {
+  interface AuthenticationEntryPoint
+}
+package org.springframework.web.filter {
+  class OncePerRequestFilter
+}
+package org.springframework.security.core.userdetails {
+  interface UserDetails
+  interface UserDetailsService
+}
+package org.springframework.security.crypto.password {
+  interface PasswordEncoder
+}
+package java.io {
+  interface Serializable
+}
+package org.springframework.data.jpa.repository {
+  interface JpaRepository
+}
+package java.lang {
+  class RuntimeException
+}
+package com.sebastian.portfolio {
+  package controller {
+    class AuthController
+    class EducationController
+    class InstitutionController
+    class PersonController
+    class ProjectController
+    class SkillController
+    class WorkExperienceController
+  }
+  package model {
+    package advices {
+      class EducationNotFoundAdvice
+      class InstitutionNotFoundAdvice
+      class PersonNotFoundAdvice
+      class ProjectNotFoundAdvice
+      class SkillNotFoundAdvice
+      class WorkExperienceNotFoundAdvice
+    }
+    package entities {
+      class Education
+      class Institution
+      class Person
+      class Project
+      class Skill
+      class User
+      class WorkExperience
+    }
+    package exceptions {
+      class EducationNotFoundException
+      class InstitutionNotFoundException
+      class PersonNotFoundException
+      class ProjectNotFoundException
+      class SkillNotFoundException
+      class WorkExperienceNotFoundException
+    }
+    package repositories {
+      class EducationRepository
+      class InstitutionRepository
+      class PersonRepository
+      class ProjectRepository
+      class SkillRepository
+      class UserRepository
+      class WorkExperienceRepository
+    }
+  }
+  package payloads {
+    class AuthRequest
+    class JwtResponse
+  }
+  package security {
+    class AuthenticationEntryPointJwt
+    class AuthenticationTokenFilter
+    class JwtUtils
+    class SecurityConfiguration
+    class UserDetailsImplementation
+    class UserDetailsServiceImplementation
+  }
+  class PortfolioApplication
+}
+
+AuthenticationEntryPointJwt ..> AuthenticationEntryPoint
+AuthenticationTokenFilter ..> OncePerRequestFilter
+AuthenticationTokenFilter o--> JwtUtils
+AuthenticationTokenFilter o--> UserDetailsServiceImplementation
+SecurityConfiguration o--> UserDetailsServiceImplementation
+SecurityConfiguration o--> AuthenticationEntryPointJwt
+UserDetailsImplementation ..> UserDetails
+UserDetailsServiceImplementation ..> UserDetailsService
+UserDetailsServiceImplementation o--> UserRepository
+
+AuthController o--> AuthenticationManager
+AuthController o--> UserRepository
+AuthController o--> PasswordEncoder
+AuthController o--> JwtUtils
+EducationController o--> EducationRepository
+EducationController o--> InstitutionRepository
+InstitutionController o--> InstitutionRepository
+InstitutionController o--> EducationRepository
+InstitutionController o--> WorkExperienceRepository
+PersonController o--> PersonRepository
+ProjectController o--> ProjectRepository
+SkillController o--> SkillRepository
+WorkExperienceController o--> WorkExperienceRepository
+WorkExperienceController o--> InstitutionRepository
+
+Education ..> Serializable
+Institution ..> Serializable
+Person ..> Serializable
+Project ..> Serializable
+Skill ..> Serializable
+User ..> Serializable
+WorkExperience ..> Serializable
+
+EducationNotFoundException --|> RuntimeException
+InstitutionNotFoundException --|> RuntimeException
+PersonNotFoundException --|> RuntimeException
+ProjectNotFoundException --|> RuntimeException
+SkillNotFoundException --|> RuntimeException
+WorkExperienceNotFoundException --|> RuntimeException
+
+EducationRepository --|> JpaRepository
+InstitutionRepository --|> JpaRepository
+PersonRepository --|> JpaRepository
+ProjectRepository --|> JpaRepository
+SkillRepository --|> JpaRepository
+UserRepository --|> JpaRepository
+WorkExperienceRepository --|> JpaRepository
+@enduml
